@@ -1,3 +1,9 @@
-<div id="app" [class.tmax-light-theme]="isLightTheme" [class.tmax-dark-theme]="!isLightTheme">
-    <tmax-default-layout></tmax-default-layout>
+<div
+    id="app"
+    [class.tmax-light-theme]="tmaxConfig.theme === 'light'"
+    [class.tmax-dark-theme]="tmaxConfig.theme === 'dark'"
+>
+    <tmax-default-layout *ngIf="tmaxConfig.layout === 'default'"></tmax-default-layout>
+
+    <!-- todo: add other layout -->
 </div>

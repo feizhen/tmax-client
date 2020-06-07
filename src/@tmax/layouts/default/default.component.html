@@ -1,9 +1,9 @@
 <mat-drawer-container class="tmax-default-layout-container">
-    <mat-drawer #drawer class="tmax-default-layout-drawer" mode="side" opened>
+    <mat-drawer #drawer class="tmax-default-layout-drawer" [mode]="sidenavDrawer.mode" [opened]="sidenavDrawer.opened">
         <p>Sidenav Content</p>
     </mat-drawer>
 
-    <mat-drawer-content>
+    <mat-drawer-content class="tmax-default-layout-content" fxLayout="column">
         <tmax-toolbar></tmax-toolbar>
         <tmax-content></tmax-content>
     </mat-drawer-content>

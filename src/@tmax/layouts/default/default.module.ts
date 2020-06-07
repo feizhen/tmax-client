@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
+import { TmaxSharedModule } from '@tmax/shared.module';
 import { TmaxSidenavModule } from '@tmax/layouts/components/sidenav/sidenav.module';
 import { TmaxToolbarModule } from '@tmax/layouts/components/toolbar/toolbar.module';
 import { TmaxContentModule } from '@tmax/layouts/components/content/content.module';
@@ -14,7 +15,7 @@ import { TmaxSidenavService } from '@tmax/layouts/components/sidenav/sidenav.ser
 
 @NgModule({
     declarations: [TmaxDefaultLayoutComponent],
-    imports: [MatSidenavModule, TmaxSidenavModule, TmaxContentModule, TmaxToolbarModule],
+    imports: [MatSidenavModule, TmaxSharedModule, TmaxSidenavModule, TmaxContentModule, TmaxToolbarModule],
     exports: [TmaxDefaultLayoutComponent],
     providers: [TmaxSidenavService],
 })

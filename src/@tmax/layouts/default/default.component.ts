@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { TmaxSidenavService } from '@tmax/layouts/components/sidenav/sidenav.service';
+import { TmaxConfigService } from '@tmax/services/config.service';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
     selector: 'tmax-default-layout',
@@ -7,13 +9,17 @@ import { TmaxSidenavService } from '@tmax/layouts/components/sidenav/sidenav.ser
     styleUrls: ['./default.component.scss'],
 })
 export class TmaxDefaultLayoutComponent implements AfterViewInit {
-    isLightTheme: boolean = true;
+    sidenavDrawer;
 
-    @ViewChild('drawer') drawer;
+    @ViewChild('drawer') private _drawer: MatDrawer;
 
     ngAfterViewInit() {
-        this._sidenavService.setDrawer(this.drawer);
+        this._sidenavService.setDrawer(this._drawer);
     }
 
-    constructor(private _sidenavService: TmaxSidenavService) {}
+    constructor(private _sidenavService: TmaxSidenavService, private _configService: TmaxConfigService) {
+        this._configService.config.subscribe((_config) => {
+            this.sidenavDrawer = _config.sidenav.drawer;
+        });
+    }
 }

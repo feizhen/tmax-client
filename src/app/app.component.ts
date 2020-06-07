@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TmaxConfigService } from '@tmax/services/config.service';
-
-import { TmaxThemeType } from '@tmax/types/tmax-config';
+import { TmaxConfig } from '@tmax/types/tmax-config';
 
 @Component({
     selector: 'app-root',
@@ -10,11 +9,13 @@ import { TmaxThemeType } from '@tmax/types/tmax-config';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-    isLightTheme: boolean;
+    // isLightTheme: boolean;
+
+    tmaxConfig: TmaxConfig;
 
     ngOnInit() {
         this._tmaxConfigSerivce.config.subscribe((_config) => {
-            this.isLightTheme = _config.theme === 'light';
+            this.tmaxConfig = _config;
         });
     }
 
