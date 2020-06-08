@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,7 @@ import { TmaxConfigService } from '@tmax/services/config.service';
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule, TmaxModule, TmaxSharedModule],
+    imports: [BrowserModule, HttpClientModule, AppRoutingModule, TmaxModule, TmaxSharedModule],
     providers: [TmaxConfigService],
     bootstrap: [AppComponent],
 })
